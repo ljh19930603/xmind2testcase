@@ -14,6 +14,7 @@ config = {'sep': ' ',
 
 def xmind_to_testsuites(xmind_content_dict):
     """convert xmind file to `xmind2testcase.metadata.TestSuite` list"""
+    print(xmind_content_dict)
     suites = []
 
     for sheet in xmind_content_dict:
@@ -27,7 +28,7 @@ def xmind_to_testsuites(xmind_content_dict):
             logging.warning('This is a blank sheet(%s), should have at least 1 sub topic(test suite)', sheet['title'])
             continue
         suite = sheet_to_suite(root_topic)
-        # suite.sheet_name = sheet['title']  # root testsuite has a sheet_name attribute
+        suite.sheet_name = sheet['title']  # root testsuite has a sheet_name attribute
         logging.debug('sheet(%s) parsing complete: %s', sheet['title'], suite.to_dict())
         suites.append(suite)
 

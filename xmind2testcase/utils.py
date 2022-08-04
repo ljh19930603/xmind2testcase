@@ -86,15 +86,19 @@ def get_xmind_testcase_list(xmind_file):
     xmind_file = get_absolute_path(xmind_file)
     logging.info('Start converting XMind file(%s) to testcases dict data...', xmind_file)
     testsuites = get_xmind_testsuites(xmind_file)
+    
     testcases = []
 
     for testsuite in testsuites:
+        print("testsuite",testsuite)
         product = testsuite.name
+        sheet_name = testsuite.sheet_name
         for suite in testsuite.sub_suites:
             for case in suite.testcase_list:
                 case_data = case.to_dict()
                 case_data['product'] = product
                 case_data['suite'] = suite.name
+                case_data['sheet_name'] = sheet_name
                 testcases.append(case_data)
 
     logging.info('Convert XMind file(%s) to testcases dict data successfully!', xmind_file)

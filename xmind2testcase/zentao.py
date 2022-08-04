@@ -112,6 +112,5 @@ def gen_case_type(case_type):
 
 if __name__ == '__main__':
     xmind_file = '../docs/zentao_testcase_template.xmind'
-    #xmind_file = 'D:\\OneDrive\\工作\\畅唐网络\\掼蛋\\1_测试用例\\掼蛋小程序10.1版本测试用例.xmind'
     zentao_csv_file = xmind_to_zentao_csv_file(xmind_file)
     print('Conver the xmind file to a zentao csv file succssfully: %s', zentao_csv_file)
